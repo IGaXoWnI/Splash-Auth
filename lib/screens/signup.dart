@@ -56,173 +56,175 @@ class _SignupState extends State<Signup> {
           child: Container(
         width: double.infinity,
         height: double.infinity,
-        child: Column(
-          children: [
-            SizedBox(
-              height: 30,
-            ),
-            Image.asset(
-              'assets/logo.png',
-              width: 84,
-              height: 92,
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            Text(
-              'Sign Up',
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Form(
-                key: formstate,
-                child: Column(
-                  children: [
-                    Textf(
-                      hint: 'Name',
-                      ispasssword: false,
-                      path: 'assets/Icons/Profile.png',
-                      validator: (val) {
-                        if (val != null && val.isEmpty) {
-                          return "enter your name";
-                        }
-                        return null;
-                      },
-                      onsave: (val) {
-                        myname = val;
-                      },
-                    ),
-                    Textf(
-                      hint: 'Email',
-                      path: 'assets/Icons/Message.png',
-                      ispasssword: false,
-                      validator: (val) {
-                        if (val != null && val.isEmpty) {
-                          return "enter your Email";
-                        }
-                        return null;
-                      },
-                      onsave: (val) {
-                        myemail = val;
-                      },
-                    ),
-                    Textf(
-                      hint: 'Password',
-                      path: 'assets/Icons/Lock.png',
-                      ispasssword: true,
-                      validator: (val) {
-                        if (val != null && val.isEmpty) {
-                          return "enter your Password";
-                        }
-                      },
-                      onsave: (val) {
-                        mypassword = val;
-                      },
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    CheckboxListTile(
-                      title: const Text('I accept all the Terms & Conditions'),
-                      value: isChecked,
-                      onChanged: (bool? newValue) {
-                        (Null Function() param0) {}(() {
-                          isChecked = newValue;
-                        });
-                      },
-                      activeColor: Color.fromRGBO(246, 121, 82, 1),
-                      checkColor: Colors.white,
-                      controlAffinity: ListTileControlAffinity.leading,
-                      tristate: true,
-                    ),
-                  ],
-                )),
-            SizedBox(
-              height: 20,
-            ),
-            Btn(
-              btntext: 'Sign up',
-              horizontal: 90,
-              raduis: 60,
-              vertical: 25,
-              size: 20,
-              onPressed: () async {
-                UserCredential response = await signUp();
-                print('-------------------------------------------------');
-                if (response!= null){
-                  Navigator.of(context).pushNamed("/login");
-                }
-                print('-------------------------------------------------');   
-                
-              },
-            ), 
-            SizedBox(
-              height: 30,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  width: 120,
-                  child: Expanded(
-                      child: Divider(
-                    thickness: 1,
-                    color: Color.fromRGBO(35, 46, 36, 0.6),
-                  )),
-                ),
-                Text("   Or   ",
-                    style: TextStyle(
-                        fontSize: 17, color: Color.fromRGBO(35, 46, 36, 0.6))),
-                Container(
-                  width: 120,
-                  child: Expanded(
-                      child: Divider(
-                    thickness: 1,
-                    color: Color.fromRGBO(35, 46, 36, 0.6),
-                  )),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(right: 20, left: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Image.asset('assets/Icons/fb.png'),
-                  Image.asset('assets/Icons/google.png')
-                ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(
+                height: 22,
               ),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 70),
-              child: Row(
+              Image.asset(
+                'assets/logo.png',
+                width: 84,
+                height: 92,
+              ),
+              SizedBox(
+                height: 22,
+              ),
+              Text(
+                'Sign Up',
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
+              ),
+              SizedBox(
+                height: 12,
+              ),
+              Form(
+                  key: formstate,
+                  child: Column(
+                    children: [
+                      Textf(
+                        hint: 'Name',
+                        ispasssword: false,
+                        path: 'assets/Icons/Profile.png',
+                        validator: (val) {
+                          if (val != null && val.isEmpty) {
+                            return "enter your name";
+                          }
+                          return null;
+                        },
+                        onsave: (val) {
+                          myname = val;
+                        },
+                      ),
+                      Textf(
+                        hint: 'Email',
+                        path: 'assets/Icons/Message.png',
+                        ispasssword: false,
+                        validator: (val) {
+                          if (val != null && val.isEmpty) {
+                            return "enter your Email";
+                          }
+                          return null;
+                        },
+                        onsave: (val) {
+                          myemail = val;
+                        },
+                      ),
+                      Textf(
+                        hint: 'Password',
+                        path: 'assets/Icons/Lock.png',
+                        ispasssword: true,
+                        validator: (val) {
+                          if (val != null && val.isEmpty) {
+                            return "enter your Password";
+                          }
+                        },
+                        onsave: (val) {
+                          mypassword = val;
+                        },
+                      ),
+                      SizedBox(
+                        height: 16,
+                      ),
+                      CheckboxListTile(
+                        title: const Text('I accept all the Terms & Conditions'),
+                        value: isChecked,
+                        onChanged: (bool? newValue) {
+                          (Null Function() param0) {}(() {
+                            isChecked = newValue;
+                          });
+                        },
+                        activeColor: Color.fromRGBO(246, 121, 82, 1),
+                        checkColor: Colors.white,
+                        controlAffinity: ListTileControlAffinity.leading,
+                        tristate: true,
+                      ),
+                    ],
+                  )),
+              SizedBox(
+                height: 15,
+              ),
+              Btn(
+                btntext: 'Sign up',
+                horizontal: 90,
+                raduis: 60,
+                vertical: 25,
+                size: 20,
+                onPressed: () async {
+                  UserCredential response = await signUp();
+                  print('-------------------------------------------------');
+                  if (response!= null){
+                    Navigator.of(context).pushNamed("/login");
+                  }
+                  print('-------------------------------------------------');   
+                  
+                },
+              ), 
+              SizedBox(
+                height: 25,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    'Already have an account? ',
-                    style: TextStyle(
-                        color: Color.fromRGBO(28, 26, 25, 0.5), fontSize: 18),
+                  Container(
+                    width: 120,
+                    child: Expanded(
+                        child: Divider(
+                      thickness: 1,
+                      color: Color.fromRGBO(35, 46, 36, 0.6),
+                    )),
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushReplacementNamed(context, "/login");
-                    },
-                    child: Text(
-                      ' Log In',
-                      style: TextStyle(fontSize: 20, color: Colors.black),
-                    ),
-                  )
+                  Text("   Or   ",
+                      style: TextStyle(
+                          fontSize: 17, color: Color.fromRGBO(35, 46, 36, 0.6))),
+                  Container(
+                    width: 120,
+                    child: Expanded(
+                        child: Divider(
+                      thickness: 1,
+                      color: Color.fromRGBO(35, 46, 36, 0.6),
+                    )),
+                  ),
                 ],
               ),
-            ),
-          ],
+              SizedBox(
+                height: 25,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 20, left: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Image.asset('assets/Icons/fb.png'),
+                    Image.asset('assets/Icons/google.png')
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 25,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 60),
+                child: Row(
+                  children: [
+                    Text(
+                      'Already have an account? ',
+                      style: TextStyle(
+                          color: Color.fromRGBO(28, 26, 25, 0.5), fontSize: 18),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushReplacementNamed(context, "/login");
+                      },
+                      child: Text(
+                        ' Log In',
+                        style: TextStyle(fontSize: 20, color: Colors.black),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       )),
     );

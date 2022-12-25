@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mystore/components/button.dart';
+import 'package:sizer/sizer.dart';
 
 class About extends StatelessWidget {
   final String NBR, title, description, path, btntext;
@@ -23,58 +24,62 @@ class About extends StatelessWidget {
           child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.only(
+                left: 20.0, right: 20, bottom: 20, top: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   NBR,
-                  style: TextStyle(fontSize: 18, color: Colors.black),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 14.sp, color: Colors.black),
                 ),
                 GestureDetector(
                   onTap: onPressed_skip,
                   child: Text(
                     'Skip',
-                    style: TextStyle(fontSize: 18, color: Colors.black),
+                    style: TextStyle(fontSize: 14.sp, color: Colors.black),
                   ),
                 ),
               ],
             ),
           ),
+          SizedBox(height: 45.h, child: Image.asset(path)),
           SizedBox(
-            height: 60,
-          ),
-          Image.asset(path),
-          SizedBox(
-            height: 50,
-          ),
-          Text(
-            title,
-            style: TextStyle(
-                fontSize: 25, color: Colors.black, fontWeight: FontWeight.w500),
-          ),
-          SizedBox(
-            height: 35,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 50, right: 50),
+            height: 6.h,
             child: Text(
-              description,
-              textAlign: TextAlign.center,
-              style:
-                  TextStyle(fontSize: 14, height: 1.7, color: Colors.grey[500]),
+              title,
+              style: TextStyle(
+                  fontSize: 17.sp,
+                  color: Colors.black,
+                  fontWeight: FontWeight.w500),
             ),
           ),
           SizedBox(
-            height: 30,
+            height: 12.h,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 50, right: 50),
+              child: Text(
+                description,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontSize: 11.sp, height: 1.7, color: Colors.grey[500]),
+              ),
+            ),
           ),
-          Btn(
-              btntext: btntext,
-              horizontal: 80,
-              raduis: 33,
-              vertical: 23,
-              size: 20,
-              onPressed: onPressed_next)
+          SizedBox(
+            height: 9.h,
+            child: Padding(
+              padding: const EdgeInsets.only(top: 10.0),
+              child: Btn(
+                  btntext: btntext,
+                  horizontal: 55.sp,
+                  raduis: 33,
+                  vertical: 2.sp,
+                  size: 20,
+                  onPressed: onPressed_next),
+            ),
+          )
         ],
       )),
     );

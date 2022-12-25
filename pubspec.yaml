@@ -39,6 +39,8 @@ dependencies:
   awesome_dialog: ^3.0.2
   google_sign_in: ^5.4.2
   flutter_native_splash: ^2.2.14
+  device_preview: ^1.0.0
+  sizer: ^2.0.15
 
 dev_dependencies:
   flutter_test:
